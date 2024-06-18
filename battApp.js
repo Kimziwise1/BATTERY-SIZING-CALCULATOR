@@ -565,7 +565,7 @@ function inv_mak_capacity() {
 
 function batt_series(){
   let real_inverter_volatge = parseFloat(inverter_voltage.value) * (12/10.5);  
-  Battery_In_Series_Value.innerHTML = "SERIES  " + "  "+ "<p>" + (real_inverter_volatge / parseInt(battery_voltage.value)) + "</p>";
+  Battery_In_Series_Value.innerHTML = "SERIES  " + "  "+ "<p>" + Math.ceil(real_inverter_volatge / parseInt(battery_voltage.value) - 1) + "</p>";
 }
 
 function batt_parallel(){
@@ -685,7 +685,7 @@ function batt_parallel(){
         }
 
         Battery_Ampere_value.innerHTML = lastFourElements[find_index_ampere] + "AH";
-        Battery_In_Parallel_Value.innerHTML = "PARALLEL " + "<p>" + parallel[find_index_ampere] +"</p>";
+        Battery_In_Parallel_Value.innerHTML = "PARALLEL " + "<p>" + Math.ceil(parseInt(parallel[find_index_ampere]) - 1) +"</p>";
 
         increase_amp_combination++;
 
